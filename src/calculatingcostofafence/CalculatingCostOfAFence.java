@@ -1,7 +1,5 @@
 package calculatingcostofafence;
 
-import java.text.NumberFormat;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class CalculatingCostOfAFence {
@@ -48,6 +46,7 @@ public class CalculatingCostOfAFence {
 			System.out.print("Enter the length of your yard in feet: ");
 			yardLength = scan.nextDouble();
 		}
+		
 		// Get material choice 
 		System.out.println("What material would you like for the fence?");
 		System.out.print("Enter 1 for the Wooden fencing or 2 for the Chain-link fencing: ");
@@ -66,6 +65,7 @@ public class CalculatingCostOfAFence {
 			case 2: 
 				materialCostPerFoot = CHAIN_LINK_FENCE_COST_PER_FOOT;
 		}
+		
 		// Get number of gates 
 		System.out.print("How many gates would you like to install? (1/2/3): ");
 		gatesNumber = scan.nextInt();
@@ -86,12 +86,14 @@ public class CalculatingCostOfAFence {
 		}
 		
 		// Calculate the total cost of a fence
-		fencePrice = ((yardWidth * yardLength) * materialCostPerFoot + gatesNumber * GATE_COST) 
-				+ ((yardWidth * yardLength) * materialCostPerFoot + gatesNumber * GATE_COST) * TAX_RATE + BUILDING_PERMIT_COST;
+		fencePrice = ((yardWidth * 2 + yardLength * 2) * materialCostPerFoot + gatesNumber * GATE_COST) 
+					+ ((yardWidth * 2 + yardLength * 2) * materialCostPerFoot + gatesNumber * GATE_COST) * TAX_RATE 
+					+ BUILDING_PERMIT_COST;
 		
 		// Display the total cost of the fence
 		System.out.println("***");
 		System.out.printf("The total cost of a fence is: $%.2f%n", fencePrice);
+		scan.close();
 	}
-
+	
 }
